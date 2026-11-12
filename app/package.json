@@ -1,0 +1,14 @@
+{
+  "name": "guru-devops-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Prebuilt portfolio application for an end-to-end DevOps deployment project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
