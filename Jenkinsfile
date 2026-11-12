@@ -51,5 +51,36 @@ pipeline {
                 }
             }
         }
+
+        stage('Docker image tag'){
+          steps{
+            script {
+              env.IMAGE_TAG = sh(
+                script: 'git rev-parse --short=7 HEAD',
+                returnStdout: true
+              ).trim()
+            }
+
+            sh '''
+                docker tag my-portfolio:build \
+                asia-south1-docker.pkg.dev/gke-kubernates-project/portfolio-repo/my-portfolio:$IMAGE_TAG
+            '''
+          }
+        }
+
+        stage('Docker push'){
+          when {
+            anyOf{
+              branch 'main'
+              branch 'develop'
+            }
+          }
+          steps{
+            sh '''
+                docker push \
+                asia-south1-docker.pkg.dev/gke-kubernates-project/portfolio-repo/my-portfolio:$IMAGE_TAG
+            '''
+          }
+        }
     }
 }
