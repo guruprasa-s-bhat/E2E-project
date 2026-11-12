@@ -1,5 +1,11 @@
-node_modules
-npm-debug.log
-.git
-.gitignore
-README.md
+node_modules/
+**/node_modules/
+.git/
+.env
+.env.*
+*.log
+coverage/
+dist/
+build/
+.vscode/
+.idea/
