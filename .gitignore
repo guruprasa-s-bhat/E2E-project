@@ -1,0 +1,27 @@
+# Node
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+coverage/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+
+# Kubernetes
+secrets.yaml
